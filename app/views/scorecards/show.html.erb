@@ -68,43 +68,43 @@
       <tr class="bottom_row_line">
         <td>Wrong Supporter Address</td>
         <td id="num_incorrect_addr"><%= @wrong_address_count %></td>
-        <td id="per_incorrect_addr"><%= %></td>
+        <td id="per_incorrect_addr"><%= calculate_percent(@wrong_address_count)  %></td>
         <td id="grade_incorrect_addr"><b>-</b></td>
       </tr>
       <tr class="bottom_row_line">
         <td>Invalid Postal Address</td>
         <td id="num_invalid_addr"><%= @invalid_address_count %></td>
-        <td id="per_invalid_addr">-</td>
+        <td id="per_invalid_addr"><%= calculate_percent(@invalid_address_count) %></td>
         <td id="grade_invalid_addr"><b>-</b></td>
       </tr>
       <tr class="bottom_row_line">
         <td>Deceased Supporters</td>
         <td id="num_deceased"><%= @deceased_count %></td>
-        <td id="per_deceased">-</td>
+        <td id="per_deceased"><%= calculate_percent(@deceased_count) %></td>
         <td id="grade_deceased"><b>-</b></td>
       </tr>
       <tr class="bottom_row_line">
         <td>Missing Phone Numbers</td>
         <td id="num_missing_phone"><%= @missing_phone_number_count %></td>
-        <td id='per_missing_phone'>-</td>
+        <td id='per_missing_phone'><%= calculate_percent(@missing_phone_number_count) %></td>
         <td id="grade_missing_phone"><b>-</b></td>
       </tr>
       <tr class="bottom_row_line">
         <td>Missing E-Mail Addresses</td>
         <td id="num_missing_email"><%= @missing_email_count %></td>
-        <td id="per_missing_email">-</td>
+        <td id="per_missing_email"><%= calculate_percent(@missing_email_count) %></td>
         <td id="grade_missing_email"><b>-</b></td>
       </tr>
       <tr class="bottom_row_line" >
         <td>Missing Birth Dates</td>
         <td id="num_missing_birthdate"><%= @missing_birthday_count %></td>
-        <td id="per_missing_birthdate">-</td>
+        <td id="per_missing_birthdate"><%= calculate_percent(@missing_birthday_count) %></td>
         <td id="grade_missing_birthdate"><b>-</b></td>
       </tr>
       <tr>
         <td>Missing Gender</td>
         <td id="num_missing_gender"><%= @missing_gender_count %></td>
-        <td id="per_missing_gender">-</td>
+        <td id="per_missing_gender"><%= calculate_percent(@missing_gender_count) %></td>
         <td id="grade_missing_gender"><b>-</b></td>
       </tr>
       </tbody>
