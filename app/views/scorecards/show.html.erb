@@ -20,5 +20,45 @@
   <%= @total_records %>
 </p>
 
+<p>
+  <strong>Wrong Address Count:</strong>
+  <%= @wrong_address_count %>
+</p>
+
+<p>
+  <strong>Invalid Address Count:</strong>
+  <%= @invalid_address_count %>
+</p>
+
+<p>
+  <strong>Deceased Count:</strong>
+  <%= @deceased_count %>
+</p>
+
+<p>
+  <strong>Do Not Mail Count:</strong>
+  <%= @do_not_mail_count %>
+</p>
+
+<p>
+  <strong>Missing Birthday Count:</strong>
+  <%= @missing_birthday_count %>
+</p>
+
+<p>
+  <strong>Missing Email Count:</strong>
+  <%= @missing_email_count %>
+</p>
+
+<p>
+  <strong>Missing Phone Number Count:</strong>
+  <%= @missing_phone_number_count %>
+</p>
+
+<p>
+  <strong>Missing Gender Count:</strong>
+  <%= @missing_gender_count %>
+</p>
+
 <%= link_to 'Edit', edit_scorecard_path(@scorecard) %> |
 <%= link_to 'Back', scorecards_path %>
