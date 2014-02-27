@@ -1,7 +1,6 @@
 class ScorecardsController < ApplicationController
   include JSON
   before_action :set_scorecard, only: [:show, :edit, :update, :destroy]
-  attr_accessor
 
   # GET /scorecards
   # GET /scorecards.json
@@ -23,6 +22,7 @@ class ScorecardsController < ApplicationController
     @missing_email_count = json_data['missingEmailCount']
     @missing_phone_number_count = json_data['missingPhoneNumberCount']
     @missing_gender_count = json_data['missingGenderCount']
+    @financial_impact_total = @invalid_address_count + @wrong_address_count + @deceased_count
   end
 
   def calculate_percent(count)
@@ -30,6 +30,11 @@ class ScorecardsController < ApplicationController
 
     return percent
   end
+
+  def calculate_lost_money(count)
+    return '$' + ('%.2f' % (count * 0.40)).to_s
+  end
+  helper_method :calculate_lost_money
 
   # GET /scorecards/new
   def new
@@ -90,6 +95,5 @@ class ScorecardsController < ApplicationController
     def scorecard_params
       params.require(:scorecard).permit(:site_id, :org_name, :data)
     end
-
 
 end
