@@ -12,6 +12,8 @@ gem 'bootstrap-sass', '>= 3.0.0.0'
 gem 'figaro'
 gem 'high_voltage'
 gem 'simple_form'
+gem 'json'
+gem "friendly_id", '~> 5.0.0', :github => "FriendlyId/friendly_id"
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
