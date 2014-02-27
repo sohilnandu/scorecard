@@ -1,6 +1,7 @@
 class ScorecardsController < ApplicationController
   include JSON
   before_action :set_scorecard, only: [:show, :edit, :update, :destroy]
+  attr_accessor
 
   # GET /scorecards
   # GET /scorecards.json
@@ -22,6 +23,12 @@ class ScorecardsController < ApplicationController
     @missing_email_count = json_data['missingEmailCount']
     @missing_phone_number_count = json_data['missingPhoneNumberCount']
     @missing_gender_count = json_data['missingGenderCount']
+  end
+
+  def calculate_percent(count)
+    percent = count / @total_records
+
+    return percent
   end
 
   # GET /scorecards/new
