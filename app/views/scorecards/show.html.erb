@@ -1,64 +1,185 @@
-<p id="notice"><%= notice %></p>
+<!-- BEGIN CLIENT SCORECARD -->
+<div class="container" id="scorecard">
+  <div style="width:100%">
+    <div style="float:left; width:73%;">
+      <h1 id="scorecard_title">The Target Analytics <em>Data Quality</em> Scorecard</h1>
+      <h3 id="sub_title">How Your Data Stacks Up Against Nonprofit Peers</h3>
+    </div>
 
-<p>
-  <strong>Site:</strong>
-  <%= @scorecard.site_id %>
-</p>
+    <div id="scorecard_grade" class="box perspective" style="float:left; width:250px; height:150px; vertical-align:middle; text-align:center;">
+      <p>
+        <b>
+          <div id="scorecard_letter_grade" style="font-size:38pt; margin-top:20pt;">
 
-<p>
-  <strong>Org name:</strong>
-  <%= @scorecard.org_name %>
-</p>
+          </div>
+        </b>
+        <br>
+      <div style="font-size:16pt; line-height:30px;">
+        Overall<br>Score
+      </div>
+      </p>
+    </div>
+  </div>
 
-<p>
-  <strong>Data:</strong>
-  <%= @scorecard.data %>
-</p>
+  <br>
 
-<p>
-  <strong>Total Records:</strong>
-  <%= @total_records %>
-</p>
+  <div style="float:left; width:50%;">
+    <br>
+    <table id="scorecard_info" class="scorecard_table" width="500">
+      <colgroup width="40%" class="side_col_line"/>
+      <colgroup />
+      <tbody>
+      <tr class="bottom_row_line">
+        <th>Organization</th>
+        <td id="client_name"><%= @scorecard.org_name %></td>
+      </tr>
+      <tr class="bottom_row_line">
+        <th>Nonprofit Sector</th>
+        <td id="vertical"><%= @vertical %></td>
+      </tr>
+      <tr>
+        <th>Records Processed</th>
+        <td id="records_processed"><%= @total_records %></td>
+      </tr>
+      </tbody>
+    </table>
+    <br>
+    <h2>Summary Results</h2>
+    <div style="letter-spacing:1px;">
+      The Data Quality Scorecard analyzes your supporter database, and scores the <b>overall <br>
+      health</b> of your contact information against your peers in the nonprofit sector. That <br>
+      score focuses on the <b>validity, accuracy, &amp; completeness</b> of your data across industry-<br>
+      standard communication channels such as mail, email, and phone.
+    </div>
+    <br>
 
-<p>
-  <strong>Wrong Address Count:</strong>
-  <%= @wrong_address_count %>
-</p>
+    <table id="scorecard_conditions" class="scorecard_table" width="700">
+      <colgroup class="side_col_line"/>
+      <colgroup class="side_col_line" style="text-align:center;"/>
+      <colgroup class="side_col_line"/>
+      <colgroup />
+      <tbody>
+      <tr class="bottom_row_line">
+        <td><b>Condition</b></td>
+        <td><b>Identified</b></td>
+        <td><b>% of File</b></td>
+        <td><b>Score</b></td>
+      </tr>
+      <tr class="bottom_row_line">
+        <td>Wrong Supporter Address</td>
+        <td id="num_incorrect_addr"><%= @wrong_address_count %></td>
+        <td id="per_incorrect_addr">-</td>
+        <td id="grade_incorrect_addr"><b>-</b></td>
+      </tr>
+      <tr class="bottom_row_line">
+        <td>Invalid Postal Address</td>
+        <td id="num_invalid_addr"><%= @invalid_address_count %></td>
+        <td id="per_invalid_addr">-</td>
+        <td id="grade_invalid_addr"><b>-</b></td>
+      </tr>
+      <tr class="bottom_row_line">
+        <td>Deceased Supporters</td>
+        <td id="num_deceased"><%= @deceased_count %></td>
+        <td id="per_deceased">-</td>
+        <td id="grade_deceased"><b>-</b></td>
+      </tr>
+      <tr class="bottom_row_line">
+        <td>Missing Phone Numbers</td>
+        <td id="num_missing_phone"><%= @missing_phone_number_count %></td>
+        <td id='per_missing_phone'>-</td>
+        <td id="grade_missing_phone"><b>-</b></td>
+      </tr>
+      <tr class="bottom_row_line">
+        <td>Missing E-Mail Addresses</td>
+        <td id="num_missing_email"><%= @missing_email_count %></td>
+        <td id="per_missing_email">-</td>
+        <td id="grade_missing_email"><b>-</b></td>
+      </tr>
+      <tr class="bottom_row_line" >
+        <td>Missing Birth Dates</td>
+        <td id="num_missing_birthdate"><%= @missing_birthday_count %></td>
+        <td id="per_missing_birthdate">-</td>
+        <td id="grade_missing_birthdate"><b>-</b></td>
+      </tr>
+      <tr>
+        <td>Missing Gender</td>
+        <td id="num_missing_gender"><%= @missing_gender_count %></td>
+        <td id="per_missing_gender">-</td>
+        <td id="grade_missing_gender"><b>-</b></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 
-<p>
-  <strong>Invalid Address Count:</strong>
-  <%= @invalid_address_count %>
-</p>
+  <div style="float:right; width:50%;">
+    <h2>Financial Impact</h2>
+    <div style="letter-spacing:1px;">
+      We have determined that the data conditions identified are costing you<br>
+      approximately <b>$10,100 per campaign,</b> in terms of wasted mailings and lost<br>
+      contribution opportunities.
+    </div>
+    <br>
+    <table id="scorecard_conditions" class="scorecard_table" width="600">
+      <colgroup class="side_col_line"/>
+      <colgroup class="side_col_line" style="text-align:center;"/>
+      <colgroup class="side_col_line"/>
+      <colgroup />
+      <tbody>
+      <tr class="bottom_row_line">
+        <td><b>Wasted Resources</b></td>
+        <td><b>Count</b></td>
+        <td><b>Cost</b></td>
+        <td><b>Lost $</b></td>
+      </tr>
+      <tr class="bottom_row_line">
+        <td>Undeliverable</td>
+        <td id="undeliverable_addr_count"><%= @invalid_address_count %></td>
+        <td>$0.40 Per</td>
+        <td id="undeliverable_addr_lost_money">-</td>
+      </tr>
+      <tr class="bottom_row_line">
+        <td>Wrong Address</td>
+        <td id="wrong_addr_count"><%= @wrong_address_count %></td>
+        <td>$0.40 Per</td>
+        <td id="wrong_addr_lost_money">-</td>
+      </tr>
+      <tr class="bottom_row_line">
+        <td>Deceased</td>
+        <td id="deceased_count"><%= @deceased_count %></td>
+        <td>$0.40 Per</td>
+        <td id="deceased_lost_money">-</td>
+      </tr>
+      <tr bgcolor="#EBF1DE">
+        <td><b>Total</b></td>
+        <td id="total_count"><b>-</b></td>
+        <td><b>$0.40 Per</b></td>
+        <td id="total_lost_money"><b>-</b></td>
+      </tr>
+      </tbody>
+    </table>
+    <br>
+    <h2>Recommendations</h2>
+    <div style="letter-spacing:1px;">
+      Based on the above, we recommend the <b>following techniques</b> to remedy<br>
+      the identified data quality challenges:
+      <br><br>
+      <b>
+        <div id='recommendations' style="margin-left:20px;">
+        </div>
+      </b>
+    </div>
+    <br><br>
+    <img style="opacity:0.3; padding-left:350px;" src="blackbaud_logo.jpg">
+  </div>
+  <br>
+  <br>
 
-<p>
-  <strong>Deceased Count:</strong>
-  <%= @deceased_count %>
-</p>
+  <a class="DTTT_button noPrint" onClick="showReport()">Return to Report</a>
 
-<p>
-  <strong>Do Not Mail Count:</strong>
-  <%= @do_not_mail_count %>
-</p>
 
-<p>
-  <strong>Missing Birthday Count:</strong>
-  <%= @missing_birthday_count %>
-</p>
-
-<p>
-  <strong>Missing Email Count:</strong>
-  <%= @missing_email_count %>
-</p>
-
-<p>
-  <strong>Missing Phone Number Count:</strong>
-  <%= @missing_phone_number_count %>
-</p>
-
-<p>
-  <strong>Missing Gender Count:</strong>
-  <%= @missing_gender_count %>
-</p>
+</div>
+<!-- END CLIENT SCORECARD -->
 
 <%= link_to 'Edit', edit_scorecard_path(@scorecard) %> |
 <%= link_to 'Back', scorecards_path %>
+

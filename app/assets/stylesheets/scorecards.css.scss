@@ -1,3 +1,54 @@
 // Place all the styles related to the Scorecards controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.container#scorecard {
+  width: 1500px;
+  background-color: #FFF;
+}
+
+#scorecard_title{
+  color: rgb(140, 190, 79);
+  font-weight: bold;
+}
+
+#sub_title {
+  font-weight: bold;
+}
+
+.bottom_row_line {
+  border-bottom: solid 1px rgb(140,190,79);
+}
+
+
+// START: scorecard tables
+.side_col_line {
+  border-right: solid 1px rgb(140,190,79);
+}
+
+.scorecard_table {
+  margin-bottom: 20px;
+}
+
+.scorecard_table th,
+.scorecard_table td {
+  padding: 8px;
+  line-height: 20px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.scorecard_table tr td:first-child + td,
+.scorecard_table tr td:first-child + td + td,
+.scorecard_table tr td:first-child + td + td + td {
+  text-align: center;
+}
+
+.scorecard_table th {
+  font-weight: bold;
+}
+
+.scorecard_table thead th {
+  vertical-align: bottom;
+}
+// END: scorecard tables

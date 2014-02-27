@@ -13,6 +13,7 @@ class ScorecardsController < ApplicationController
   def show
     json_data = JSON.parse(@scorecard.data)
     @total_records = json_data['totalRecords']
+    @vertical = json_data['vertical']
     @wrong_address_count = json_data['wrongAddressCount']
     @invalid_address_count = json_data['invalidAddressCount']
     @deceased_count = json_data['deceasedCount']
