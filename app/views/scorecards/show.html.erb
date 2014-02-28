@@ -115,7 +115,7 @@
     <h2>Financial Impact</h2>
     <div style="letter-spacing:1px;">
       We have determined that the data conditions identified are costing you<br>
-      approximately <b><%= calculate_lost_money(@scorecard.financial_impact_total)%> per campaign,</b> in terms of wasted mailings and lost<br>
+      approximately <b><%= calculate_lost_money(@financial_impact_total)%> per campaign,</b> in terms of wasted mailings and lost<br>
       contribution opportunities.
     </div>
     <br>
@@ -151,9 +151,9 @@
       </tr>
       <tr bgcolor="#EBF1DE">
         <td><b>Total</b></td>
-        <td id="total_count"><b><%= @scorecard.financial_impact_total %></b></td>
+        <td id="total_count"><b><%= @financial_impact_total %></b></td>
         <td><b>$0.40 Per</b></td>
-        <td id="total_lost_money"><b><%= calculate_lost_money(@scorecard.financial_impact_total)%></b></td>
+        <td id="total_lost_money"><b><%= calculate_lost_money(@financial_impact_total)%></b></td>
       </tr>
       </tbody>
     </table>

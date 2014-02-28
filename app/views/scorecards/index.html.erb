@@ -22,7 +22,6 @@
   <tbody>
 
     <% @scorecards.each do |scorecard| %>
-      <% scorecard.init_data() %>
       <tr>
         <td><%= scorecard.site_id %></td>
         <td><%= scorecard.org_name %></td>

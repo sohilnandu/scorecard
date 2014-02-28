@@ -12,7 +12,7 @@ class ScorecardsController < ApplicationController
   # GET /scorecards/1
   # GET /scorecards/1.json
   def show
-    @scorecard.init_data()
+    @financial_impact_total = @scorecard.invalid_address_count + @scorecard.wrong_address_count + @scorecard.deceased_count
   end
 
   def calculate_percent(count)
