@@ -1,12 +1,18 @@
-<h1>Data Health Check Report</h1>
-
-<table class="scorecards_table table-striped">
+<h1 id="scorecard_list_title">Data Health Check Report</h1>
+<table class="scorecards_table table-striped table-bordered">
   <thead>
     <tr>
       <th>Site</th>
       <th>Client Name</th>
-      <th># Records Processed</th>
       <th>Vertical</th>
+      <th># Records Processed</th>
+      <th># of Correctable Addresses</th>
+      <th># Invalid Postal Addresses</th>
+      <th># Found Deceased</th>
+      <th># Missing Gender</th>
+      <th># Missing Birthdate</th>
+      <th># Missing Email</th>
+      <th># Missing Phone Number</th>
       <th></th>
       <th></th>
       <th></th>
@@ -16,12 +22,19 @@
   <tbody>
 
     <% @scorecards.each do |scorecard| %>
-      <%= scorecard.init_data() %>
+      <% scorecard.init_data() %>
       <tr>
         <td><%= scorecard.site_id %></td>
         <td><%= scorecard.org_name %></td>
-        <td><%= scorecard.total_records %></td>
         <td><%= scorecard.vertical %></td>
+        <td><%= scorecard.total_records %></td>
+        <td><%= scorecard.wrong_address_count %></td>
+        <td><%= scorecard.invalid_address_count %></td>
+        <td><%= scorecard.deceased_count %></td>
+        <td><%= scorecard.missing_gender_count %></td>
+        <td><%= scorecard.missing_birthday_count %></td>
+        <td><%= scorecard.missing_email_count %></td>
+        <td><%= scorecard.missing_phone_number_count %></td>
         <td><%= link_to 'Show', scorecard %></td>
         <td><%= link_to 'Edit', edit_scorecard_path(scorecard) %></td>
         <td><%= link_to 'Destroy', scorecard, method: :delete, data: { confirm: 'Are you sure?' } %></td>

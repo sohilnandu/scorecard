@@ -54,7 +54,17 @@
 // END: individual scorecard tables
 
 // START: list all scorecards table
+#scorecard_list_title {
+  color: rgb(140, 190, 79);
+  font-weight: bold;
+}
+
 .scorecards_table{
+  thead {
+    color: rgb(140, 190, 79);
+    font-weight: bold;
+  }
+
   thead > tr > th,
   tbody > tr > td {
     padding: 10px;

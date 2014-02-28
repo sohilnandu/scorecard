@@ -135,7 +135,7 @@
         <td>Undeliverable</td>
         <td id="undeliverable_addr_count"><%= @scorecard.invalid_address_count %></td>
         <td>$0.40 Per</td>
-        <td id="undeliverable_addr_lost_money"><%= calculate_lost_money(@invalid_address_count)%></td>
+        <td id="undeliverable_addr_lost_money"><%= calculate_lost_money(@scorecard.invalid_address_count)%></td>
       </tr>
       <tr class="bottom_row_line">
         <td>Wrong Address</td>
