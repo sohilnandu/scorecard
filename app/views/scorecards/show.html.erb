@@ -115,7 +115,7 @@
     <h2>Financial Impact</h2>
     <div style="letter-spacing:1px;">
       We have determined that the data conditions identified are costing you<br>
-      approximately <b>$10,100 per campaign,</b> in terms of wasted mailings and lost<br>
+      approximately <b><%= calculate_lost_money(@financial_impact_total)%> per campaign,</b> in terms of wasted mailings and lost<br>
       contribution opportunities.
     </div>
     <br>
@@ -135,25 +135,25 @@
         <td>Undeliverable</td>
         <td id="undeliverable_addr_count"><%= @invalid_address_count %></td>
         <td>$0.40 Per</td>
-        <td id="undeliverable_addr_lost_money">-</td>
+        <td id="undeliverable_addr_lost_money"><%= calculate_lost_money(@invalid_address_count)%></td>
       </tr>
       <tr class="bottom_row_line">
         <td>Wrong Address</td>
         <td id="wrong_addr_count"><%= @wrong_address_count %></td>
         <td>$0.40 Per</td>
-        <td id="wrong_addr_lost_money">-</td>
+        <td id="wrong_addr_lost_money"><%= calculate_lost_money(@wrong_address_count)%></td>
       </tr>
       <tr class="bottom_row_line">
         <td>Deceased</td>
         <td id="deceased_count"><%= @deceased_count %></td>
         <td>$0.40 Per</td>
-        <td id="deceased_lost_money">-</td>
+        <td id="deceased_lost_money"><%= calculate_lost_money(@deceased_count)%></td>
       </tr>
       <tr bgcolor="#EBF1DE">
         <td><b>Total</b></td>
-        <td id="total_count"><b>-</b></td>
+        <td id="total_count"><b><%= @financial_impact_total%></b></td>
         <td><b>$0.40 Per</b></td>
-        <td id="total_lost_money"><b>-</b></td>
+        <td id="total_lost_money"><b><%= calculate_lost_money(@financial_impact_total)%></b></td>
       </tr>
       </tbody>
     </table>
