@@ -21,7 +21,7 @@
 }
 
 
-// START: scorecard tables
+// START: individual scorecard tables
 .side_col_line {
   border-right: solid 1px rgb(140,190,79);
 }
@@ -51,4 +51,13 @@
 .scorecard_table thead th {
   vertical-align: bottom;
 }
-// END: scorecard tables
+// END: individual scorecard tables
+
+// START: list all scorecards table
+.scorecards_table{
+  thead > tr > th,
+  tbody > tr > td {
+    padding: 10px;
+  }
+}
+// END: list all scorecards table

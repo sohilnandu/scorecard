@@ -1,7 +1,7 @@
 class ScorecardsController < ApplicationController
   include JSON
   before_action :set_scorecard, only: [:show, :edit, :update, :destroy]
-  helper_method :calculate_percent
+  helper_method :calculate_percent, :calculate_lost_money
 
   # GET /scorecards
   # GET /scorecards.json
@@ -12,32 +12,25 @@ class ScorecardsController < ApplicationController
   # GET /scorecards/1
   # GET /scorecards/1.json
   def show
-    json_data = JSON.parse(@scorecard.data)
-    @total_records = json_data['totalRecords']
-    @vertical = json_data['vertical']
-    @wrong_address_count = json_data['wrongAddressCount']
-    @invalid_address_count = json_data['invalidAddressCount']
-    @deceased_count = json_data['deceasedCount']
-    @do_not_mail_count = json_data['doNotMailCount']
-    @missing_birthday_count = json_data['missingBirthdayCount']
-    @missing_email_count = json_data['missingEmailCount']
-    @missing_phone_number_count = json_data['missingPhoneNumberCount']
-    @missing_gender_count = json_data['missingGenderCount']
-    @financial_impact_total = @invalid_address_count + @wrong_address_count + @deceased_count
+    @scorecard.init_data()
   end
 
   def calculate_percent(count)
-
-    percent = (count / @total_records.to_f) * 100
-    percent = percent.to_i
+    if count.nil?
+      return nil
+    end
+    percent = ((count / @scorecard.total_records.to_f) * 100).round(1)
 
     return percent
   end
 
   def calculate_lost_money(count)
+    if count.nil?
+      return nil
+    end
+
     return '$' + ('%.2f' % (count * 0.40)).to_s
   end
-  helper_method :calculate_lost_money
 
   # GET /scorecards/new
   def new

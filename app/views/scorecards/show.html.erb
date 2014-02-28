@@ -35,11 +35,11 @@
       </tr>
       <tr class="bottom_row_line">
         <th>Nonprofit Sector</th>
-        <td id="vertical"><%= @vertical %></td>
+        <td id="vertical"><%= @scorecard.vertical %></td>
       </tr>
       <tr>
         <th>Records Processed</th>
-        <td id="records_processed"><%= @total_records %></td>
+        <td id="records_processed"><%= @scorecard.total_records %></td>
       </tr>
       </tbody>
     </table>
@@ -67,44 +67,44 @@
       </tr>
       <tr class="bottom_row_line">
         <td>Wrong Supporter Address</td>
-        <td id="num_incorrect_addr"><%= @wrong_address_count %></td>
-        <td id="per_incorrect_addr"><%= calculate_percent(@wrong_address_count)  %> %</td>
+        <td id="num_incorrect_addr"><%= @scorecard.wrong_address_count %></td>
+        <td id="per_incorrect_addr"><%= calculate_percent(@scorecard.wrong_address_count)  %>%</td>
         <td id="grade_incorrect_addr"><b>-</b></td>
       </tr>
       <tr class="bottom_row_line">
         <td>Invalid Postal Address</td>
-        <td id="num_invalid_addr"><%= @invalid_address_count %></td>
-        <td id="per_invalid_addr"><%= calculate_percent(@invalid_address_count) %> %</td>
+        <td id="num_invalid_addr"><%= @scorecard.invalid_address_count %></td>
+        <td id="per_invalid_addr"><%= calculate_percent(@scorecard.invalid_address_count) %>%</td>
         <td id="grade_invalid_addr"><b>-</b></td>
       </tr>
       <tr class="bottom_row_line">
         <td>Deceased Supporters</td>
-        <td id="num_deceased"><%= @deceased_count %></td>
-        <td id="per_deceased"><%= calculate_percent(@deceased_count) %> %</td>
+        <td id="num_deceased"><%= @scorecard.deceased_count %></td>
+        <td id="per_deceased"><%= calculate_percent(@scorecard.deceased_count) %>%</td>
         <td id="grade_deceased"><b>-</b></td>
       </tr>
       <tr class="bottom_row_line">
         <td>Missing Phone Numbers</td>
-        <td id="num_missing_phone"><%= @missing_phone_number_count %></td>
-        <td id='per_missing_phone'><%= calculate_percent(@missing_phone_number_count) %> %</td>
+        <td id="num_missing_phone"><%= @scorecard.missing_phone_number_count %></td>
+        <td id='per_missing_phone'><%= calculate_percent(@scorecard.missing_phone_number_count) %>%</td>
         <td id="grade_missing_phone"><b>-</b></td>
       </tr>
       <tr class="bottom_row_line">
         <td>Missing E-Mail Addresses</td>
-        <td id="num_missing_email"><%= @missing_email_count %></td>
-        <td id="per_missing_email"><%= calculate_percent(@missing_email_count) %> %</td>
+        <td id="num_missing_email"><%= @scorecard.missing_email_count %></td>
+        <td id="per_missing_email"><%= calculate_percent(@scorecard.missing_email_count) %>%</td>
         <td id="grade_missing_email"><b>-</b></td>
       </tr>
       <tr class="bottom_row_line" >
         <td>Missing Birth Dates</td>
-        <td id="num_missing_birthdate"><%= @missing_birthday_count %></td>
-        <td id="per_missing_birthdate"><%= calculate_percent(@missing_birthday_count) %> %</td>
+        <td id="num_missing_birthdate"><%= @scorecard.missing_birthday_count %></td>
+        <td id="per_missing_birthdate"><%= calculate_percent(@scorecard.missing_birthday_count) %>%</td>
         <td id="grade_missing_birthdate"><b>-</b></td>
       </tr>
       <tr>
         <td>Missing Gender</td>
-        <td id="num_missing_gender"><%= @missing_gender_count %></td>
-        <td id="per_missing_gender"><%= calculate_percent(@missing_gender_count) %> %</td>
+        <td id="num_missing_gender"><%= @scorecard.missing_gender_count %></td>
+        <td id="per_missing_gender"><%= calculate_percent(@scorecard.missing_gender_count) %>%</td>
         <td id="grade_missing_gender"><b>-</b></td>
       </tr>
       </tbody>
@@ -115,7 +115,7 @@
     <h2>Financial Impact</h2>
     <div style="letter-spacing:1px;">
       We have determined that the data conditions identified are costing you<br>
-      approximately <b><%= calculate_lost_money(@financial_impact_total)%> per campaign,</b> in terms of wasted mailings and lost<br>
+      approximately <b><%= calculate_lost_money(@scorecard.financial_impact_total)%> per campaign,</b> in terms of wasted mailings and lost<br>
       contribution opportunities.
     </div>
     <br>
@@ -133,27 +133,27 @@
       </tr>
       <tr class="bottom_row_line">
         <td>Undeliverable</td>
-        <td id="undeliverable_addr_count"><%= @invalid_address_count %></td>
+        <td id="undeliverable_addr_count"><%= @scorecard.invalid_address_count %></td>
         <td>$0.40 Per</td>
         <td id="undeliverable_addr_lost_money"><%= calculate_lost_money(@invalid_address_count)%></td>
       </tr>
       <tr class="bottom_row_line">
         <td>Wrong Address</td>
-        <td id="wrong_addr_count"><%= @wrong_address_count %></td>
+        <td id="wrong_addr_count"><%= @scorecard.wrong_address_count %></td>
         <td>$0.40 Per</td>
-        <td id="wrong_addr_lost_money"><%= calculate_lost_money(@wrong_address_count)%></td>
+        <td id="wrong_addr_lost_money"><%= calculate_lost_money(@scorecard.wrong_address_count)%></td>
       </tr>
       <tr class="bottom_row_line">
         <td>Deceased</td>
-        <td id="deceased_count"><%= @deceased_count %></td>
+        <td id="deceased_count"><%= @scorecard.deceased_count %></td>
         <td>$0.40 Per</td>
-        <td id="deceased_lost_money"><%= calculate_lost_money(@deceased_count)%></td>
+        <td id="deceased_lost_money"><%= calculate_lost_money(@scorecard.deceased_count)%></td>
       </tr>
       <tr bgcolor="#EBF1DE">
         <td><b>Total</b></td>
-        <td id="total_count"><b><%= @financial_impact_total%></b></td>
+        <td id="total_count"><b><%= @scorecard.financial_impact_total %></b></td>
         <td><b>$0.40 Per</b></td>
-        <td id="total_lost_money"><b><%= calculate_lost_money(@financial_impact_total)%></b></td>
+        <td id="total_lost_money"><b><%= calculate_lost_money(@scorecard.financial_impact_total)%></b></td>
       </tr>
       </tbody>
     </table>
@@ -174,7 +174,7 @@
   <br>
   <br>
 
-  <a class="DTTT_button noPrint" onClick="showReport()">Return to Report</a>
+  <a class="DTTT_button noPrint">Return to Report</a>
 
 
 </div>

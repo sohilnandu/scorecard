@@ -1,11 +1,12 @@
-<h1>Listing scorecards</h1>
+<h1>Data Health Check Report</h1>
 
-<table>
+<table class="scorecards_table table-striped">
   <thead>
     <tr>
       <th>Site</th>
-      <th>Org name</th>
-      <th>Data</th>
+      <th>Client Name</th>
+      <th># Records Processed</th>
+      <th>Vertical</th>
       <th></th>
       <th></th>
       <th></th>
@@ -13,11 +14,14 @@
   </thead>
 
   <tbody>
+
     <% @scorecards.each do |scorecard| %>
+      <%= scorecard.init_data() %>
       <tr>
         <td><%= scorecard.site_id %></td>
         <td><%= scorecard.org_name %></td>
-        <td><%= scorecard.data %></td>
+        <td><%= scorecard.total_records %></td>
+        <td><%= scorecard.vertical %></td>
         <td><%= link_to 'Show', scorecard %></td>
         <td><%= link_to 'Edit', edit_scorecard_path(scorecard) %></td>
         <td><%= link_to 'Destroy', scorecard, method: :delete, data: { confirm: 'Are you sure?' } %></td>
