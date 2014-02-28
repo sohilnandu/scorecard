@@ -1,6 +1,7 @@
 class ScorecardsController < ApplicationController
   include JSON
   before_action :set_scorecard, only: [:show, :edit, :update, :destroy]
+  helper_method :calculate_percent
 
   # GET /scorecards
   # GET /scorecards.json
@@ -26,7 +27,9 @@ class ScorecardsController < ApplicationController
   end
 
   def calculate_percent(count)
-    percent = count / @total_records
+
+    percent = (count / @total_records.to_f) * 100
+    percent = percent.to_i
 
     return percent
   end
