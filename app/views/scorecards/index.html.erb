@@ -7,12 +7,19 @@
       <th>Vertical</th>
       <th># Records Processed</th>
       <th># of Correctable Addresses</th>
+      <th>% of Correctable Addresses</th>
       <th># Invalid Postal Addresses</th>
+      <th>% Invalid Postal Addresses</th>
       <th># Found Deceased</th>
+      <th>% Found Deceased</th>
       <th># Missing Gender</th>
+      <th>% Missing Gender</th>
       <th># Missing Birthdate</th>
+      <th>% Missing Birthdate</th>
       <th># Missing Email</th>
+      <th>% Missing Email</th>
       <th># Missing Phone Number</th>
+      <th>% Missing Phone Number</th>
       <th></th>
       <th></th>
       <th></th>
@@ -24,16 +31,23 @@
     <% @scorecards.each do |scorecard| %>
       <tr>
         <td><%= scorecard.site_id %></td>
-        <td><%= scorecard.org_name %></td>
+        <td><%= link_to scorecard.org_name, scorecard %></td>
         <td><%= scorecard.vertical %></td>
         <td><%= scorecard.total_records %></td>
         <td><%= scorecard.wrong_address_count %></td>
+        <td><%= scorecard.wrong_address_percent %></td>
         <td><%= scorecard.invalid_address_count %></td>
+        <td><%= scorecard.invalid_address_percent %></td>
         <td><%= scorecard.deceased_count %></td>
+        <td><%= scorecard.deceased_percent %></td>
         <td><%= scorecard.missing_gender_count %></td>
+        <td><%= scorecard.missing_gender_percent %></td>
         <td><%= scorecard.missing_birthday_count %></td>
+        <td><%= scorecard.missing_birthday_percent %></td>
         <td><%= scorecard.missing_email_count %></td>
+        <td><%= scorecard.missing_email_percent %></td>
         <td><%= scorecard.missing_phone_number_count %></td>
+        <td><%= scorecard.missing_phone_number_percent %></td>
         <td><%= link_to 'Show', scorecard %></td>
         <td><%= link_to 'Edit', edit_scorecard_path(scorecard) %></td>
         <td><%= link_to 'Destroy', scorecard, method: :delete, data: { confirm: 'Are you sure?' } %></td>
